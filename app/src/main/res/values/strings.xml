@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pet Buy Sell</string>
+    <string name="title_section1">Submit Ad</string>
+    <string name="title_section2">My Ads</string>
+    <string name="title_section3">Favorite Ads</string>
+    <string name="title_section4">Login</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Search</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
