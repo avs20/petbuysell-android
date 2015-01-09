@@ -7,7 +7,145 @@
     <!-- As the main content view, the view below consumes the entire
          space available using match_parent in both dimensions. -->
     <FrameLayout android:id="@+id/container" android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:baselineAligned="false"
+                android:id="@+id/topLinearLayout"
+                android:measureWithLargestChild="false"
+                android:showDividers="beginning|middle|end"
+                android:divider="#f9131715"
+                android:dividerPadding="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Search or Find "
+                    android:id="@+id/searchTextMainActivity"
+                    android:padding="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:divider="#ffff000e"
+                    android:layout_marginTop="4dp"
+                    android:dividerPadding="5dp"
+                    android:focusableInTouchMode="false"
+                    android:showDividers="beginning">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView"
+                        android:src="@drawable/sample_0"
+                        android:background="#5e3b1600"
+                        android:adjustViewBounds="true" />
+
+                    <Space
+                        android:layout_width="10px"
+                        android:layout_height="10px" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView2"
+                        android:src="@drawable/sample_1"
+                        android:background="#5e3b1600"
+                        android:cropToPadding="false"
+                        android:adjustViewBounds="true" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="10px"
+                    android:layout_height="10px" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:measureWithLargestChild="false">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView3"
+                        android:src="@drawable/sample_0"
+                        android:background="#5e3b1600"
+                        android:padding="0dp"
+                        android:adjustViewBounds="true" />
+
+                    <Space
+                        android:layout_width="10px"
+                        android:layout_height="10px" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView4"
+                        android:src="@drawable/sample_1"
+                        android:background="#5e3b1600"
+                        android:padding="0dp"
+                        android:adjustViewBounds="true" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="10px"
+                    android:layout_height="10px" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView5"
+                        android:src="@drawable/sample_0"
+                        android:background="#5e3b1600"
+                        android:adjustViewBounds="true" />
+
+                    <Space
+                        android:layout_width="10px"
+                        android:layout_height="10px" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView6"
+                        android:src="@drawable/sample_1"
+                        android:background="#5e3b1600"
+                        android:adjustViewBounds="true" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
 
     <!-- android:layout_gravity="start" tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
@@ -21,18 +159,7 @@
         android:layout_gravity="start"
         android:name="com.siolabs.myapplication.NavigationDrawerFragment"
         tools:layout="@layout/fragment_navigation_drawer" />
-    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/main_gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="90dp"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
-        android:drawSelectorOnTop="false" />
-
+    
 
 
 </android.support.v4.widget.DrawerLayout>

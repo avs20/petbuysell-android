@@ -43,6 +43,7 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -53,13 +54,13 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
         
         //set up the grid view
-        gridView = (GridView)findViewById(R.id.main_gridview);
-        gridView.setAdapter(new ImageAdapter(this));
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        gridView = (GridView)findViewById(R.id.main_gridview);
+//        gridView.setAdapter(new ImageAdapter(this));
+//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+//                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 
