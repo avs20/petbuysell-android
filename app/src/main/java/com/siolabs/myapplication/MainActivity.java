@@ -53,14 +53,7 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
         
-        //set up the grid view
-//        gridView = (GridView)findViewById(R.id.main_gridview);
-//        gridView.setAdapter(new ImageAdapter(this));
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-//                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
 
     }
 
