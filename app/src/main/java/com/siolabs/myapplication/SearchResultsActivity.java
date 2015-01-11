@@ -79,6 +79,7 @@ public class SearchResultsActivity extends ActionBarActivity implements ActionBa
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

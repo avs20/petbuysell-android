@@ -36,6 +36,11 @@
             </intent-filter>
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
+            android:parentActivityName="com.example.myfirstapp.MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.siolabs.myapplication.MainActivity" />
 
         </activity>
 
