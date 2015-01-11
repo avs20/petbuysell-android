@@ -6,22 +6,18 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.app.SearchManager;
+import android.widget.SearchView;
 
-import com.siolabs.myapplication.com.siolabs.myapplication.adapters.ImageAdapter;
+
 
 
 public class MainActivity extends ActionBarActivity
@@ -31,8 +27,6 @@ public class MainActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private GridView gridView;
-
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -91,10 +85,18 @@ public class MainActivity extends ActionBarActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
+            System.out.println("not open");
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
+            getMenuInflater().inflate(R.menu.options_menu, menu);
+            // Associate searchable configuration with the SearchView
+            SearchManager searchManager =
+                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            SearchView searchView =
+                    (SearchView) menu.findItem(R.id.action_search).getActionView();
+            searchView.setSearchableInfo(
+                    searchManager.getSearchableInfo(getComponentName()));
             restoreActionBar();
             return true;
         }
