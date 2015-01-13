@@ -1,6 +1,7 @@
 package com.siolabs.myapplication;
 
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,7 +31,7 @@ import com.siolabs.myapplication.com.siolabs.myapplication.adapters.DemoObjectFr
 ////            fragments, so use getSupportFragmentManager.
             mDemoCollectionPagerAdapter =
                     new AdsPagerAdapter(
-                            getSupportFragmentManager());
+                            getSupportFragmentManager(), getApplicationContext());
             mViewPager = (ViewPager) findViewById(R.id.pager);
             mViewPager.setAdapter(mDemoCollectionPagerAdapter);
         }
@@ -54,23 +55,27 @@ import com.siolabs.myapplication.com.siolabs.myapplication.adapters.DemoObjectFr
     // Since this is an object collection, use a FragmentStatePagerAdapter,
 // and NOT a FragmentPagerAdapter.
      class AdsPagerAdapter extends FragmentStatePagerAdapter {
-        public AdsPagerAdapter(FragmentManager fm) {
+        
+        Context context;
+        
+        public AdsPagerAdapter(FragmentManager fm, Context context) {
             super(fm);
+            this.context = context;
         }
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new DemoObjectFragment();
+            Fragment fragment = new DemoObjectFragment(context);
             Bundle args = new Bundle();
             // Our object is just an integer :-P
-            args.putInt(DemoObjectFragment.ARG_OBJECT, i + 1);
+            args.putInt(DemoObjectFragment.ARG_OBJECT, i);
             fragment.setArguments(args);
             return fragment;
         }
 
         @Override
         public int getCount() {
-            return 100;
+            return 5;
         }
 
         @Override
