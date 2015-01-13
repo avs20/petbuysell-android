@@ -5,11 +5,42 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container" 
+    android:id="@+id/topcontainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.siolabs.myapplication.SearchResultsActivity"
     
     >
-    
-    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:id="@+id/category_btn"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filters"
+                android:id="@+id/filter_btn"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/container_res"></FrameLayout>
+
+    </LinearLayout>
+</FrameLayout>

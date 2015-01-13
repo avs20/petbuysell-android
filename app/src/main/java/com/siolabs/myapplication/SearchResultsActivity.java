@@ -25,11 +25,10 @@ import com.siolabs.myapplication.fragments.AdListFragment;
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_search_results);
-            System.out.println("In on create");
            // handleIntent(getIntent());
 
             if (savedInstanceState == null) { 
-                getSupportFragmentManager().beginTransaction().add(R.id.container,new AdListFragment()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.container_res,new AdListFragment()).commit();
             }
 
 ////            ViewPager and its adapters use support library
