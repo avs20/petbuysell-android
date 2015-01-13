@@ -11,11 +11,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
-import com.siolabs.myapplication.com.siolabs.myapplication.adapters.DemoObjectFragment;
+import com.siolabs.myapplication.adapters.DemoObjectFragment;
+import com.siolabs.myapplication.fragments.AdListFragment;
 
 
 /*     my code */
-    public class SearchResultsActivity extends FragmentActivity {
+    public class SearchResultsActivity extends FragmentActivity implements AdListFragment.OnFragmentInteractionListener{
         // When requested, this adapter returns a DemoObjectFragment,
         // representing an object in the collection.
         AdsPagerAdapter mDemoCollectionPagerAdapter;
@@ -27,13 +28,17 @@ import com.siolabs.myapplication.com.siolabs.myapplication.adapters.DemoObjectFr
             System.out.println("In on create");
            // handleIntent(getIntent());
 
-//            ViewPager and its adapters use support library
+            if (savedInstanceState == null) { 
+                getSupportFragmentManager().beginTransaction().add(R.id.container,new AdListFragment()).commit();
+            }
+
+////            ViewPager and its adapters use support library
 ////            fragments, so use getSupportFragmentManager.
-            mDemoCollectionPagerAdapter =
-                    new AdsPagerAdapter(
-                            getSupportFragmentManager(), getApplicationContext());
-            mViewPager = (ViewPager) findViewById(R.id.pager);
-            mViewPager.setAdapter(mDemoCollectionPagerAdapter);
+//            mDemoCollectionPagerAdapter =
+//                    new AdsPagerAdapter(
+//                            getSupportFragmentManager(), getApplicationContext());
+//            mViewPager = (ViewPager) findViewById(R.id.pager);
+//            mViewPager.setAdapter(mDemoCollectionPagerAdapter);
         }
 
     private void handleIntent(Intent intent) {
@@ -48,9 +53,17 @@ import com.siolabs.myapplication.com.siolabs.myapplication.adapters.DemoObjectFr
     @Override
     protected void onNewIntent(Intent intent){
         handleIntent(intent);
+        
+        
 
     }
+
+
+    @Override
+    public void onFragmentInteraction(String id) {
+        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
     }
+}
 
     // Since this is an object collection, use a FragmentStatePagerAdapter,
 // and NOT a FragmentPagerAdapter.

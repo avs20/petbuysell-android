@@ -1,4 +1,4 @@
-package com.siolabs.myapplication.com.siolabs.myapplication.adapters;
+package com.siolabs.myapplication.adapters;
 
 import android.content.Context;
 import android.view.View;
