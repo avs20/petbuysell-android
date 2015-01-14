@@ -9,7 +9,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -19,7 +22,7 @@ import com.siolabs.myapplication.fragments.AdListFragment;
 
 
 /*     my code */
-    public class SearchResultsActivity extends FragmentActivity implements AdListFragment.OnFragmentInteractionListener{
+    public class SearchResultsActivity extends ActionBarActivity implements AdListFragment.OnFragmentInteractionListener{
         // When requested, this adapter returns a DemoObjectFragment,
         // representing an object in the collection.
         AdsPagerAdapter mDemoCollectionPagerAdapter;
@@ -31,8 +34,7 @@ import com.siolabs.myapplication.fragments.AdListFragment;
            // handleIntent(getIntent());
 
             if (savedInstanceState == null) {
-                System.out.println("Inside saved Instance");
-                getSupportFragmentManager().beginTransaction().add(R.id.search_list_fragment,new AdListFragment()).commit();
+               getSupportFragmentManager().beginTransaction().add(R.id.search_list_fragment,new AdListFragment()).commit();
             }
 
 ////            ViewPager and its adapters use support library
@@ -56,27 +58,21 @@ import com.siolabs.myapplication.fragments.AdListFragment;
     @Override
     protected void onNewIntent(Intent intent){
         handleIntent(intent);
-        
-        
-
     }
 
 
     @Override
     public void onFragmentInteraction(String id) {
-        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Success" + id, Toast.LENGTH_SHORT).show();
     }
 
-    public static class PlaceholderFragment extends Fragment {
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_adlist_list, container, false);
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.search_results_options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
-
-
 
 }
 

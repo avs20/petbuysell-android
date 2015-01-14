@@ -27,7 +27,7 @@
 
         </activity>
         <activity android:name=".SearchResultsActivity"
-            android:label="Search Results"
+            android:label="Browse Ads"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             >

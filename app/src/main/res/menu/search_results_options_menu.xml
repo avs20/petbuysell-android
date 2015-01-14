@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Search / will display always -->
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/action_example"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom"   />
+
+    <!-- Settings, should always be in the overflow -->
+    <!--<item android:id="@+id/action_settings"-->
+        <!--android:title="@string/action_settings"-->
+        <!--app:showAsAction="never" />-->
+
+    <item android:id="@+id/save_search"
+        android:title="@string/save_search"
+        app:showAsAction="never" />
+
+
+    <!--<item android:id="@+id/menu_openothermenu"-->
+        <!--android:title="Whatsthis"-->
+        <!--app:showAsAction="always">-->
+        <!--<menu>-->
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/menu_3_choice_1" android:title="@string/sort_recent"  app:showAsAction="never" />
+                <item android:id="@+id/menu_3_choice_2" android:title="@string/sort_price_low"  app:showAsAction="never" />
+                <item android:id="@+id/menu_3_choice_3" android:title="@string/sort_price_high"  app:showAsAction="never" android:checked="true" />
+            </group>
+        <!--</menu>-->
+    <!--</item>-->
+    
+
+</menu>

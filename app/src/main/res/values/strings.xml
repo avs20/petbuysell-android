@@ -13,6 +13,10 @@
     <string name="search_hint">Search here</string>
     <string name="title_activity_search_results">Search Results</string>
     <string name="hello_world">Hello world!</string>
+    <string name="save_search">Save Search</string>
+    <string name="sort_recent">Most recent</string>
+    <string name="sort_price_low">Price: Rs Low to High</string>
+    <string name="sort_price_high">Price: Rs High to Low</string>
 
     <string-array
         name="categories">
