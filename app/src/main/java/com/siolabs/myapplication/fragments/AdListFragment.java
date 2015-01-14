@@ -64,6 +64,7 @@ public class AdListFragment extends Fragment implements AbsListView.OnItemClickL
      * fragment (e.g. upon screen orientation changes).
      */
     public AdListFragment() {
+
     }
 
     @Override

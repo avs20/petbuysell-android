@@ -20,7 +20,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content">
 
             <Button
                 android:layout_width="wrap_content"
@@ -38,9 +38,20 @@
         </LinearLayout>
 
         <FrameLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_res">
+
+
+        </FrameLayout>
+
+        <fragment
+            tools:layout="@layout/fragment_adlist_list"
+            android:id="@+id/search_list_fragment"
+            android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:id="@+id/container_res"></FrameLayout>
+            android:name="android.support.v4.app.ListFragment" />
 
     </LinearLayout>
+
 </FrameLayout>

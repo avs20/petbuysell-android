@@ -9,6 +9,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.siolabs.myapplication.adapters.DemoObjectFragment;
@@ -27,8 +30,9 @@ import com.siolabs.myapplication.fragments.AdListFragment;
             setContentView(R.layout.activity_search_results);
            // handleIntent(getIntent());
 
-            if (savedInstanceState == null) { 
-                getSupportFragmentManager().beginTransaction().add(R.id.container_res,new AdListFragment()).commit();
+            if (savedInstanceState == null) {
+                System.out.println("Inside saved Instance");
+                getSupportFragmentManager().beginTransaction().add(R.id.search_list_fragment,new AdListFragment()).commit();
             }
 
 ////            ViewPager and its adapters use support library
@@ -62,6 +66,18 @@ import com.siolabs.myapplication.fragments.AdListFragment;
     public void onFragmentInteraction(String id) {
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
     }
+
+    public static class PlaceholderFragment extends Fragment {
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_adlist_list, container, false);
+        }
+    }
+
+
+
 }
 
     // Since this is an object collection, use a FragmentStatePagerAdapter,
