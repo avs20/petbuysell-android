@@ -18,8 +18,7 @@
     <string name="sort_price_low">Price: Rs Low to High</string>
     <string name="sort_price_high">Price: Rs High to Low</string>
 
-    <string-array
-        name="categories">
+    <string-array name="categories">
         <item>Dogs</item>
         <item>Cats</item>
         <item>Birds</item>
@@ -28,7 +27,6 @@
         <item>Reptiles</item>
         <item>Others</item>
     </string-array>
-    
     <string-array name="dog_prices">
         <item>4000</item>
         <item>3500</item>
@@ -36,7 +34,6 @@
         <item>1000</item>
         <item>5000</item>
     </string-array>
-    
     <string-array name="dog_title">
         <item>German Shepherd</item>
         <item>Labrador</item>
@@ -44,7 +41,6 @@
         <item>Pappu</item>
         <item>Tom</item>
     </string-array>
-    
     <string-array name="dog_locations">
         <item>NSW</item>
         <item>Melbourne</item>
@@ -52,33 +48,23 @@
         <item>Someplace</item>
         <item>I only remember 2 cities</item>
     </string-array>
-    
     <string-array name="dog_desc">
-        
         <item>Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
 
 Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.</item>
-        
-        <item>
-            Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
+        <item>            Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
 
-Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
-            
-        </item>
-        
+Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.</item>
         <item>Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
 
 Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.</item>
-        
         <item> Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
 
 Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.</item>
-        
         <item>Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.
 
 Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing.</item>
     </string-array>
-
     <string-array name="user_name">
         <item>Tom Scott</item>
         <item>Peter Parker</item>
@@ -86,5 +72,7 @@ Well, the way they make shows is, they make one show. That show\'s called a pilo
         <item>Shaktiman</item>
         <item>Jaadu</item>
     </string-array>
+
+    <string name="title_activity_single_result">SingleResultActivity</string>
 
 </resources>

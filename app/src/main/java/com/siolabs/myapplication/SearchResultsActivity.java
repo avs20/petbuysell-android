@@ -64,6 +64,9 @@ import com.siolabs.myapplication.fragments.AdListFragment;
     @Override
     public void onFragmentInteraction(String id) {
         Toast.makeText(this, "Success" + id, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SingleResultActivity.class);
+        intent.putExtra("id", Integer.parseInt(id));
+        startActivity(intent);
     }
 
     @Override
@@ -75,39 +78,5 @@ import com.siolabs.myapplication.fragments.AdListFragment;
     }
 
 }
-
-    // Since this is an object collection, use a FragmentStatePagerAdapter,
-// and NOT a FragmentPagerAdapter.
-     class AdsPagerAdapter extends FragmentStatePagerAdapter {
-        
-        Context context;
-        
-        public AdsPagerAdapter(FragmentManager fm, Context context) {
-            super(fm);
-            this.context = context;
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            Fragment fragment = new DemoObjectFragment(context);
-            Bundle args = new Bundle();
-            // Our object is just an integer :-P
-            args.putInt(DemoObjectFragment.ARG_OBJECT, i);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public int getCount() {
-            return 5;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return "OBJECT " + (position + 1);
-        }
-    }
-
-    
 
 
