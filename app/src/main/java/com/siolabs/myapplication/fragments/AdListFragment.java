@@ -3,6 +3,7 @@ package com.siolabs.myapplication.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,6 +107,8 @@ public class AdListFragment extends Fragment implements AbsListView.OnItemClickL
                     + " must implement OnFragmentInteractionListener");
         }
     }
+    
+
 
     @Override
     public void onDetach() {
@@ -128,14 +131,14 @@ public class AdListFragment extends Fragment implements AbsListView.OnItemClickL
      * The default content for this Fragment has a TextView that is shown when
      * the list is empty. If you would like to change the text, call this method
      * to supply the text it should use.
-     */
-    public void setEmptyText(CharSequence emptyText) {
-        View emptyView = mListView.getEmptyView();
-
-        if (emptyView instanceof TextView) {
-            ((TextView) emptyView).setText(emptyText);
-        }
-    }
+//     */
+//    public void setEmptyText(CharSequence emptyText) {
+//        View emptyView = mListView.getEmptyView();
+//
+//        if (emptyView instanceof TextView) {
+//            ((TextView) emptyView).setText(emptyText);
+//        }
+//    }
 
     /**
      * This interface must be implemented by activities that contain this

@@ -3,19 +3,13 @@
     <!--android:layout_width="match_parent" android:layout_height="match_parent"-->
     <!--tools:context="com.siolabs.myapplication.SearchResultsActivity" />-->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/topcontainer"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.siolabs.myapplication.SearchResultsActivity"
-    
-    >
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -37,21 +31,13 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/container_res">
-
-
-        </FrameLayout>
 
         <fragment
             tools:layout="@layout/fragment_adlist_list"
             android:id="@+id/search_list_fragment"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:name="android.support.v4.app.ListFragment" />
 
     </LinearLayout>
 
-</FrameLayout>
