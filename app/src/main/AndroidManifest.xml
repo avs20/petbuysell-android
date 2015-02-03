@@ -43,6 +43,7 @@
         </activity>
         <activity
             android:name=".SingleResultActivity"
+            android:theme="@style/SearchTheme"
             android:label="@string/title_activity_single_result"
             android:parentActivityName=".SearchResultsActivity"
             android:screenOrientation="portrait">
