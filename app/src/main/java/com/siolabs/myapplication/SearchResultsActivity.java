@@ -1,8 +1,13 @@
 package com.siolabs.myapplication;
 
+
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Movie;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,32 +15,151 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.siolabs.myapplication.adapters.DemoObjectFragment;
+import com.siolabs.myapplication.app.AppController;
 import com.siolabs.myapplication.fragments.AdListFragment;
+import com.siolabs.myapplication.model.AdItem;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.siolabs.myapplication.adapters.CustomAdListAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.android.volley.Response;
 
 
+public class SearchResultsActivity extends ActionBarActivity implements AdListFragment.OnFragmentInteractionListener{
 
-    public class SearchResultsActivity extends ActionBarActivity implements AdListFragment.OnFragmentInteractionListener{
+
+        // Log tag
+        private static final String TAG = MainActivity.class.getSimpleName();
+
+        // Movies json url
+        private static final String url = "http://www.json-generator.com/api/json/get/cuevQeEmMi?indent=2";
+        private ProgressDialog pDialog;
+        private List<AdItem> movieList = new ArrayList<AdItem>();
+        private ListView listView;
+        private CustomAdListAdapter adapter;
 
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_search_results);
            // handleIntent(getIntent());
 
-            if (savedInstanceState == null) {
-               getSupportFragmentManager().beginTransaction().add(R.id.search_list_fragment,new AdListFragment()).commit();
+            listView = (ListView) findViewById(R.id.list);
+            adapter = new CustomAdListAdapter(this, movieList);
+            listView.setAdapter(adapter);
+
+            pDialog = new ProgressDialog(this);
+            // Showing progress dialog before making http request
+            pDialog.setMessage("Loading...");
+            pDialog.show();
+
+//            // changing action bar color
+//            getActionBar().setBackgroundDrawable(
+//                    new ColorDrawable(Color.parseColor("#1b1b1b")));
+            
+            
+            //json parsing 
+            // Creating volley request obj
+            JsonArrayRequest movieReq = new JsonArrayRequest(url,
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Log.d(TAG, response.toString());
+                            hidePDialog();
+
+                            // Parsing json
+                            for (int i = 0; i < response.length(); i++) {
+                                try {
+
+                                    JSONObject obj = response.getJSONObject(i);
+                                    AdItem item = new AdItem();
+                                    item.setTitle(obj.getString("title"));
+                                    item.setThumbnailUrl(obj.getString("picture"));
+                                    item.setPrice((Integer) obj.get("price"));
+
+                                    item.setPostTime(obj.getString("postTime"));
+
+//                                    // Genre is json array
+//                                    JSONArray genreArry = obj.getJSONArray("genre");
+//                                    ArrayList<String> genre = new ArrayList<String>();
+//                                    for (int j = 0; j < genreArry.length(); j++) {
+//                                        genre.add((String) genreArry.get(j));
+//                                    }
+                                    item.setCity(obj.getString("city"));
+
+                                    // adding movie to movies array
+                                    movieList.add(item);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+
+
+                                }
+
+                                // notifying list adapter about data changes
+                                // so that it renders the list view with updated data
+                                adapter.notifyDataSetChanged();
+                            }
+                        }}
+
+                        ,new Response.ErrorListener()
+
+                        {
+                            @Override
+                            public void onErrorResponse(VolleyError error){
+                            VolleyLog.d(TAG, "Error: " + error.getMessage());
+                            hidePDialog();
+                        }
+
+                    });
+
+            // Adding request to request queue
+            AppController.getInstance().addToRequestQueue(movieReq);
+        } 
+                    
+            @Override
+            public void onDestroy() {
+                super.onDestroy();
+                hidePDialog();
             }
 
-        }
+            private void hidePDialog() {
+                if (pDialog != null) {
+                    pDialog.dismiss();
+                    pDialog = null;
+                }
+            }
+                    
+                    
 
-         private void handleIntent(Intent intent) {
+
+//            if (savedInstanceState == null) {
+//               getSupportFragmentManager().beginTransaction().add(R.id.search_list_fragment,new AdListFragment()).commit();
+//            }
+
+
+    
+
+
+    private void handleIntent(Intent intent) {
             if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
                 //TODO: parse the query from the previous screen and get the results from the internet
                 System.out.println("Got the intent");
