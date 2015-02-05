@@ -3,24 +3,13 @@ package com.siolabs.myapplication;
 
 import android.app.ProgressDialog;
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Movie;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,7 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.siolabs.myapplication.adapters.DemoObjectFragment;
 import com.siolabs.myapplication.app.AppController;
 import com.siolabs.myapplication.fragments.AdListFragment;
 import com.siolabs.myapplication.model.AdItem;
@@ -36,12 +24,13 @@ import com.siolabs.myapplication.model.AdItem;
 import java.util.ArrayList;
 import java.util.List;
 import com.siolabs.myapplication.adapters.CustomAdListAdapter;
+import com.siolabs.myapplication.adapters.CategoryFragmentPagerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.android.volley.Response;
+import com.siolabs.myapplication.utils.SlidingTabLayout;
 
 
 public class SearchResultsActivity extends ActionBarActivity implements AdListFragment.OnFragmentInteractionListener{
@@ -61,6 +50,17 @@ public class SearchResultsActivity extends ActionBarActivity implements AdListFr
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_search_results);
            // handleIntent(getIntent());
+
+            // Get the ViewPager and set it's PagerAdapter so that it can display items
+            ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+            viewPager.setAdapter(new CategoryFragmentPagerAdapter(getSupportFragmentManager(),
+                    SearchResultsActivity.this));
+
+            // Give the SlidingTabLayout the ViewPager
+            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+            // Center the tabs in the layout
+            slidingTabLayout.setDistributeEvenly(true);
+            slidingTabLayout.setViewPager(viewPager);
 
             listView = (ListView) findViewById(R.id.list);
             adapter = new CustomAdListAdapter(this, movieList);
