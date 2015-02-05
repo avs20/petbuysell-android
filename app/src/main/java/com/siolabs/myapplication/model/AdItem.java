@@ -14,6 +14,9 @@ public class AdItem {
     private String city;
 
 
+    private boolean isFavorite = false;
+
+
     public AdItem(){    }
     public AdItem(String title, String thumbnailUrl, int price, boolean isNegotiable, String time, String city ){
         this.title = title;
@@ -22,11 +25,13 @@ public class AdItem {
         this.isNegotiable = isNegotiable;
         this.postTime  = time;
         this.city = city;
+        
 
     }
 
 
 
+    
 
     public String getTitle() {
         return title;
@@ -75,6 +80,16 @@ public class AdItem {
     public void setCity(String city) {
         this.city = city;
     }
+
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
+    }
+        
 
     
     

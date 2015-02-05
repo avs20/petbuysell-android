@@ -3,10 +3,12 @@ package com.siolabs.myapplication.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -49,7 +51,7 @@ public class CustomAdListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         if (inflater == null)
             inflater = (LayoutInflater) activity
@@ -65,6 +67,20 @@ public class CustomAdListAdapter extends BaseAdapter {
         TextView price = (TextView) convertView.findViewById(R.id.price);
         TextView city = (TextView) convertView.findViewById(R.id.city);
         TextView time = (TextView) convertView.findViewById(R.id.time);
+        
+        
+        convertView.findViewById(R.id.favorite).setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                adItems.get(position).setFavorite(!adItems.get(position).isFavorite());
+                notifyDataSetChanged();
+                
+                //TODO Add the code here to add the adItem to users personal List
+            }
+        });
+        
+        ImageView favorite = (ImageView)convertView.findViewById(R.id.favorite);
 
         // getting movie data for the row
         AdItem m = adItems.get(position);
@@ -78,6 +94,7 @@ public class CustomAdListAdapter extends BaseAdapter {
         // rating == price
         price.setText("$ " + String.valueOf(m.getPrice()));
 
+        final boolean favorited = false;
         // genre == city
         String genreStr = m.getCity();
 //        for (String str : m.getGenre()) {
@@ -85,11 +102,17 @@ public class CustomAdListAdapter extends BaseAdapter {
 //        }
 //        genreStr = genreStr.length() > 0 ? genreStr.substring(0,
 //                genreStr.length() - 2) : genreStr;
-//        genre.setText(genreStr);
+        city.setText(genreStr);
 
         // release year == postTime
         time.setText(String.valueOf(m.getPostTime()));
-
+        
+        if(m.isFavorite())
+            favorite.setImageResource(R.drawable.favorited);
+        else
+            favorite.setImageResource(R.drawable.favorite);
+        
+        
         return convertView;
         
     }
