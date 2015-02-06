@@ -20,7 +20,9 @@
                 android:text="Categories"
                 android:id="@+id/categoryBtn"
                 android:layout_weight="1"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:clickable="true"
+                android:onClick="chooseCategory" />
 
             <Button
                 android:layout_width="match_parent"

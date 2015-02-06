@@ -191,6 +191,12 @@ public class SearchResultsActivity extends ActionBarActivity implements AdListFr
             inflater.inflate(R.menu.search_results_options_menu, menu);
             return super.onCreateOptionsMenu(menu);
         }
+    
+        public void chooseCategory(View v){
+            Intent intent = new Intent(this, CategoryListActivity.class);
+            startActivity(intent);
+            
+        }
 
 }
 

@@ -74,5 +74,7 @@ Well, the way they make shows is, they make one show. That show\'s called a pilo
     </string-array>
 
     <string name="title_activity_single_result">SingleResultActivity</string>
+    <string name="title_category_list">Categories</string>
+    <string name="title_category_detail">Category Detail</string>
 
 </resources>

@@ -8,8 +8,8 @@
     <!-- Thumbnail Image -->
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/thumbnail"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp" />
 
@@ -40,17 +40,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/price"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/thumbnail"
+        android:paddingBottom="8dp"
         android:textColor="@color/genre"
         android:textSize="@dimen/genre" />
 
-    <!-- Release Year -->
+    <!-- PostTime -->
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/thumbnail"
+        android:layout_marginTop="2dp"
         android:textColor="@color/year"
         android:textSize="@dimen/year" />
 
@@ -61,7 +64,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
         android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:paddingRight="10dp"
         android:paddingTop="30dp"
         android:layout_alignParentBottom="true"
         android:src="@drawable/favorite" />
