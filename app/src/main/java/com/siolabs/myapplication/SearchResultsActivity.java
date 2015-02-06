@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -51,16 +52,7 @@ public class SearchResultsActivity extends ActionBarActivity implements AdListFr
             setContentView(R.layout.activity_search_results);
            // handleIntent(getIntent());
 
-            // Get the ViewPager and set it's PagerAdapter so that it can display items
-            ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-            viewPager.setAdapter(new CategoryFragmentPagerAdapter(getSupportFragmentManager(),
-                    SearchResultsActivity.this));
 
-            // Give the SlidingTabLayout the ViewPager
-            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-            // Center the tabs in the layout
-            slidingTabLayout.setDistributeEvenly(true);
-            slidingTabLayout.setViewPager(viewPager);
 
             listView = (ListView) findViewById(R.id.list);
             adapter = new CustomAdListAdapter(this, movieList);
