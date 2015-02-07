@@ -2,7 +2,18 @@ package com.siolabs.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
+
+import com.siolabs.myapplication.adapters.CategoryListAdapter;
+import com.siolabs.myapplication.model.AdItem;
+import com.siolabs.myapplication.model.CategoryItem;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 
 /**
@@ -29,11 +40,26 @@ public class CategoryListActivity extends FragmentActivity
      * device.
      */
     private boolean mTwoPane = false ;
-
+    
+    private CategoryListAdapter adapter;
+    private List<CategoryItem> items = new ArrayList<CategoryItem>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
+        
+        String[] cat = getResources().getStringArray(R.array.categories);
+        
+        //TODO code here to get the number of items from the server
+        for(String c : cat){
+            items.add(new CategoryItem(c, 1234,7823));
+        }
+        
+        adapter = new CategoryListAdapter(this, items );
+        
+        
+        
+        
 
           //commented this so that it is always in 1 pane mode
 //        if (findViewById(R.id.category_detail_container) != null) {

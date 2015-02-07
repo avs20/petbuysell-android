@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -25,13 +24,10 @@ import com.siolabs.myapplication.model.AdItem;
 import java.util.ArrayList;
 import java.util.List;
 import com.siolabs.myapplication.adapters.CustomAdListAdapter;
-import com.siolabs.myapplication.adapters.CategoryFragmentPagerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.siolabs.myapplication.utils.SlidingTabLayout;
 
 
 public class SearchResultsActivity extends ActionBarActivity implements AdListFragment.OnFragmentInteractionListener{

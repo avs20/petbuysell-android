@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.siolabs.myapplication.dummy.DummyContent;
+import com.siolabs.myapplication.adapters.CategoryListAdapter;
+import com.siolabs.myapplication.dummy.CategoryContent;
+import com.siolabs.myapplication.model.CategoryItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A list fragment representing a list of Categories. This fragment
@@ -71,12 +75,27 @@ public class CategoryListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+        String[] cat = getResources().getStringArray(R.array.categories);
+
+        List<CategoryItem> items = new ArrayList<CategoryItem>();
+        //TODO code here to get the number of items from the server
+        for(String cs : cat){
+            items.add(new CategoryItem(cs,1234,R.drawable.cat_image));
+        }
+
+
+
+
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                DummyContent.ITEMS));
+        setListAdapter(new CategoryListAdapter(getActivity(), items));
+        
+//        setListAdapter(new ArrayAdapter<CategoryContent.CategoryItem>(
+//                getActivity(),
+//                android.R.layout.simple_list_item_activated_1,
+//                android.R.id.text1,
+//                CategoryContent.ITEMS));
     }
 
     @Override
@@ -116,7 +135,7 @@ public class CategoryListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(CategoryContent.ITEMS.get(position).id);
     }
 
     @Override

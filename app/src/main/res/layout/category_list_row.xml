@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+<ImageView
+    android:id="@+id/category_image"
+    android:layout_width="40dp"
+    android:layout_height="70dp"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="30dp"
+    />
+    
+<TextView
+    android:id="@+id/category_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/category_image"
+    android:layout_marginTop="8dp"
+    android:paddingLeft="8dp"
+    android:textSize="20dip" />
+<TextView
+    
+    android:id="@+id/num_items_in_category"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/category_image"
+    android:layout_below="@+id/category_name"
+    android:textSize="13dip"
+    android:paddingTop="5dp"
+    android:paddingLeft="8dp"
+
+    />
+    
+    
+ <!--TODO change it to image view Text doesn't work-->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:textSize="20dip"
+
+
+    android:gravity="center_vertical"
+    android:id="@+id/category_arrow"
+    android:text=">"
+    android:textColor="#ffff514d" />
+    
+    
+    
+    
+</RelativeLayout>
