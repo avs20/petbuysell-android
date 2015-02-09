@@ -1,6 +1,7 @@
 package com.siolabs.myapplication;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
@@ -51,7 +52,7 @@ public class CategoryListFragment extends ListFragment {
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(String id);
+        public void onItemSelected(CategoryItem item);
     }
 
     /**
@@ -60,7 +61,7 @@ public class CategoryListFragment extends ListFragment {
      */
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
-        public void onItemSelected(String id) {
+        public void onItemSelected(CategoryItem item) {
         }
     };
 
@@ -77,12 +78,22 @@ public class CategoryListFragment extends ListFragment {
 
 
 
+        //TODO get the categories from the server or the database
         String[] cat = getResources().getStringArray(R.array.categories);
 
         List<CategoryItem> items = new ArrayList<CategoryItem>();
-        //TODO code here to get the number of items from the server
+        //TODO code here to get the number of items from the server 
+        
         for(String cs : cat){
-            items.add(new CategoryItem(cs,1234,R.drawable.cat_image));
+                        
+            if ( cs.contentEquals("Dogs")){
+                CategoryItem dogs =new CategoryItem(cs,1234,R.drawable.cat_image) ;
+                dogs.setFinal(false);
+                dogs.setArrayName("dog_sub_cat");
+                items.add(dogs);
+            }else{
+                items.add(new CategoryItem(cs,1234,R.drawable.cat_image));
+            }
         }
 
 
@@ -135,7 +146,9 @@ public class CategoryListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(CategoryContent.ITEMS.get(position).id);
+//        listView.getAdapter().getItem(position)
+        //        mCallbacks.onItemSelected(CategoryContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected((CategoryItem)listView.getAdapter().getItem(position));
     }
 
     @Override

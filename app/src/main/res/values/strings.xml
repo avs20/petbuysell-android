@@ -17,6 +17,14 @@
     <string name="sort_recent">Most recent</string>
     <string name="sort_price_low">Price: Rs Low to High</string>
     <string name="sort_price_high">Price: Rs High to Low</string>
+    
+    <string-array name="dog_sub_cat">
+        <item>Adult Dog</item>
+        <item>Puppy</item>
+    </string-array>
+            
+        
+
 
     <string-array name="categories">
         <item>Dogs</item>

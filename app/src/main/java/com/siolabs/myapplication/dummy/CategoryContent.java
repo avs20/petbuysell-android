@@ -30,11 +30,12 @@ public class CategoryContent {
         
 
         addItem(new CategoryItem("1", "Dogs"));
-        addItem(new CategoryItem("2", "Birds"));
-        addItem(new CategoryItem("3", "Fishes"));
-        addItem(new CategoryItem("3", "Reptiles"));
-        addItem(new CategoryItem("3", "Corals"));
-        addItem(new CategoryItem("3", "Others"));
+        addItem(new CategoryItem("2", "Cats"));
+        addItem(new CategoryItem("3", "Birds"));
+        addItem(new CategoryItem("4", "Fishes"));
+        addItem(new CategoryItem("5", "Reptiles"));
+        addItem(new CategoryItem("6", "Corals"));
+        addItem(new CategoryItem("7", "Others"));
     }
 
     private static void addItem(CategoryItem item) {

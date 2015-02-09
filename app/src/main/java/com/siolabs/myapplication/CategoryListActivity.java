@@ -48,17 +48,17 @@ public class CategoryListActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
         
-        String[] cat = getResources().getStringArray(R.array.categories);
+//        String[] cat = getResources().getStringArray(R.array.categories);
         
-        //TODO code here to get the number of items from the server
-        for(String c : cat){
-            items.add(new CategoryItem(c, 1234,7823));
-        }
-        
-        adapter = new CategoryListAdapter(this, items );
-        
-        
-        
+//        //TODO code here to get the number of items from the server
+//        for(String c : cat){
+//            items.add(new CategoryItem(c, 1234,7823));
+//        }
+//
+//        adapter = new CategoryListAdapter(this, items );
+//
+//
+//
         
 
           //commented this so that it is always in 1 pane mode
@@ -84,13 +84,14 @@ public class CategoryListActivity extends FragmentActivity
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onItemSelected(String id) {
+    public void onItemSelected(CategoryItem selectedCat) {
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(CategoryDetailFragment.ARG_ITEM_ID, id);
+            //TODO Either remove this whole code or change the line below
+//            arguments.put(CategoryDetailFragment.ARG_ITEM_ID, id);
             CategoryDetailFragment fragment = new CategoryDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -100,9 +101,20 @@ public class CategoryListActivity extends FragmentActivity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, CategoryDetailActivity.class);
-            detailIntent.putExtra(CategoryDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+            
+            if(selectedCat.isFinal()){
+                //TODO send the request to server to get the ads
+                Intent detailIntent = new Intent(this, CategoryDetailActivity.class);
+                detailIntent.putExtra(CategoryDetailFragment.ARG_ITEM_ID, selectedCat.getName());
+                startActivity(detailIntent);
+            }else{
+                //TODO start the  DetailActivity
+                Intent detailIntent = new Intent(this, CategoryDetailActivity.class);
+                detailIntent.putExtra(CategoryDetailFragment.ARG_ITEM_ID, selectedCat.getName());
+                startActivity(detailIntent);
+            }
+            
+            
         }
     }
 }
